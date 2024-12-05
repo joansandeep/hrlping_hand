@@ -26,9 +26,10 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `admin`
 --
-
+CREATE DATABASE helpinghand;
+USE helpinghand;
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -47,11 +48,11 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `agent` (
-  `agent_id` int(50) NOT NULL,
+  `agent_id` int NOT NULL,
   `name` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
-  `phone` int(10) NOT NULL,
+  `phone` int NOT NULL,
   `message` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -74,11 +75,11 @@ INSERT INTO `agent` (`agent_id`, `name`, `password`, `address`, `phone`, `messag
 --
 
 CREATE TABLE `donate` (
-  `id` int(200) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `address` varchar(100) NOT NULL,
-  `phone` int(10) NOT NULL,
+  `phone` int NOT NULL,
   `donatingitem` varchar(50) NOT NULL,
   `quantity` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -96,14 +97,16 @@ INSERT INTO `donate` (`id`, `name`, `email`, `address`, `phone`, `donatingitem`,
 --
 -- Table structure for table `donor`
 --
-
 CREATE TABLE `donor` (
-  `donor_id` int(50) NOT NULL,
+  `donor_id` int NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
-  `phone` int(10) NOT NULL
+  `phone` int NOT NULL,
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`donor_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 --
 -- Dumping data for table `donor`
@@ -120,11 +123,11 @@ INSERT INTO `donor` (`donor_id`, `username`, `password`, `address`, `phone`) VAL
 --
 
 CREATE TABLE `volunteer` (
-  `vid` int(11) NOT NULL,
+  `vid` int NOT NULL,
   `image` blob NOT NULL,
   `name` varchar(100) NOT NULL,
-  `age` int(100) NOT NULL,
-  `phone` int(10) NOT NULL,
+  `age` int NOT NULL,
+  `phone` int NOT NULL,
   `address` varchar(50) NOT NULL,
   `password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -171,33 +174,34 @@ ALTER TABLE `volunteer`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `agent`
 --
 ALTER TABLE `agent`
-  MODIFY `agent_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `agent_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `donate`
 --
 ALTER TABLE `donate`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `donor`
 --
 ALTER TABLE `donor`
-  MODIFY `donor_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `donor_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `volunteer`
 --
 ALTER TABLE `volunteer`
-  MODIFY `vid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `vid` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
